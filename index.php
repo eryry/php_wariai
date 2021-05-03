@@ -12,11 +12,24 @@ $week = $weeks[date("w")];
 <html lang="ja">
 <head>
   <meta charset="utf=8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>配分計算</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
 </head>
 <body class="watercolor">
-  <h1><span class="emphasis">割合計算</span><?php echo $today."(".$week.")"; ?></h1>
+  <div class="title_area">
+    <h1><span class="emphasis">割合計算</span><?php echo $today."(".$week.")"; ?></h1>
+    
+    <div id="app-name">
+      <p v-if="name!==''">{{ name }}さんの今日の業務割合算出します</p>
+      <p v-if="name===''">あなたの名前を入力してください</p>
+      名前：<input v-bind:id="name" v-model="name">
+    </div>
+  </div>
+
 <div class="sections">
   <section class="base">
     <h2>本日の勤務時間数</h2>
@@ -134,6 +147,15 @@ $week = $weeks[date("w")];
     <input type="submit" value="all CLEAR" name="allclear">
   </form>
   </section>
+  
+  <script>
+    var appName = new Vue({
+      el:'#app-name',
+      data: {
+        name: ''
+      }
+    })
+  </script>
 </div>
 </body>
 </html>
