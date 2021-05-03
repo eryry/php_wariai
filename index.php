@@ -21,7 +21,7 @@ $week = $weeks[date("w")];
 </head>
 <body class="watercolor">
   <div class="title_area">
-    <h1><span class="emphasis">割合計算</span><?php echo $today."(".$week.")"; ?></h1>
+    <h1><span class="emphasis">業務割合計算</span><?php echo $today."(".$week.")"; ?></h1>
     
     <div id="app-name">
       <p v-if="name!==''">{{ name }}さんの今日の業務割合算出します</p>
